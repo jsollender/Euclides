@@ -15,13 +15,17 @@ contains
     divs = p
    
     if (m < p) then
-        write(*,*) "el primero numero es menor que el segundo"
+    
+        !write(*,*) "El primer numero es menor que el segundo. Lo tuve que dar vuelta... >:("
+        
         aux = divd
         divd = divs
         divs = aux
+    
     end if
     
     !Bloque de procesamiento
+    
     ite = 1
     do 
         resto = mod(divd, divs)
@@ -29,14 +33,19 @@ contains
             MCDEuclides = divs
             exit
         end if
-        write(*,*) "dividendo" , divd , "divisor" , divs , "resto" , resto
+    
+        !write(*,*) "dividendo" , divd , "divisor" , divs , "resto" , resto
         divd = divs
         divs = resto
         
 
         ite = ite + 1
     end do
-    write(*,*) "Iteracion MCD = " , ite , m, p
+	
+	write(*,'(X, A25, I10, A3, I10, A16)') "Para calcular el MCD de", m, "y", p, "necesitamos..." 
+    write(*,'(A11, X, I4, X, A23)') "---------->", ite, "iteraciones <----------"
+    write(*,*) ""
+    
     end function MCDEuclides
 
 
